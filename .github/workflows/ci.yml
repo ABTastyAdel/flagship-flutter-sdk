@@ -18,7 +18,7 @@ jobs:
 
       - run: flutter test --coverage
 
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v2
         with:
           files: ./coverage/lcov.info
       - name: Update codecov
