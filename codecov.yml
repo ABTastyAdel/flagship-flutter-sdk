@@ -3,10 +3,16 @@ codecov:
 
 coverage:
   status:
-    patch: false
+    patch:
+      default:
+        # basic
+        informational: true
+        target: auto
+        threshold: 100%
     project:
       default:
         # basic
+        informational: true
         target: auto
         threshold: 100%
     
