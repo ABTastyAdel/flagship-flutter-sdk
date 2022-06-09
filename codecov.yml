@@ -29,5 +29,3 @@ comment:
 
 ignore:
   - "test/"
-  - codecov.yml
-  - lcov.info
