@@ -4,6 +4,11 @@ codecov:
 coverage:
   status:
     patch: false
+    project:
+      default:
+        # basic
+        target: auto
+        threshold: 100%
     
   precision: 2
   round: down
