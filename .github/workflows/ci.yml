@@ -19,10 +19,6 @@ jobs:
       - run: flutter test --coverage
 
       - uses: codecov/codecov-action@v2
-        with:
-          files: ./coverage/lcov.info
-      - name: Update codecov
-        run: bash <(curl -s https://codecov.io/bash)
 
   build_qa_apk:
     runs-on: ubuntu-latest
