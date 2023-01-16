@@ -29,8 +29,13 @@ void main() {
     "Content-type": "application/json"
   };
 
-  Map<String, dynamic> presetContext = FlagshipContextManager.getPresetContextForApp();
-  Map<String, dynamic> jsonData = {"visitorId": "visitorId", "context": presetContext, "trigger_hit": false};
+  Map<String, dynamic> presetContext =
+      FlagshipContextManager.getPresetContextForApp();
+  Map<String, dynamic> jsonData = {
+    "visitorId": "visitorId",
+    "context": presetContext,
+    "trigger_hit": false
+  };
   Object data = json.encode(jsonData);
   // Object data = json.encode({"visitorId": "visitorId", "context": {}, "trigger_hit": false});
 
@@ -38,7 +43,8 @@ void main() {
   ApiManager fakePanicApi = ApiManager(fakePanicService);
 
   test('FlagshipConfig ', () async {
-    FlagshipConfig conf = ConfigBuilder().withTimeout(4000).withLogLevel(Level.ALL).build();
+    FlagshipConfig conf =
+        ConfigBuilder().withTimeout(4000).withLogLevel(Level.ALL).build();
 
     expect(conf.statusListener, null);
     expect(conf.timeout, 4000);
@@ -46,9 +52,13 @@ void main() {
   });
 
   test('Test API with panic mode', () async {
-    String fakeResponse = await ToolsTest.readFile('test_resources/decisionApiPanic.json') ?? "";
-    when(fakePanicService.sendHttpRequest(RequestType.Post,
-            'https://decision.flagship.io/v2/bkk9glocmjcg0vtmdlrr/campaigns/?exposeAllKeys=true', fsHeaders, data,
+    String fakeResponse =
+        await ToolsTest.readFile('test_resources/decisionApiPanic.json') ?? "";
+    when(fakePanicService.sendHttpRequest(
+            RequestType.Post,
+            'https://decision.flagship.io/v2/bkk9glocmjcg0vtmdlrr/campaigns/?exposeAllKeys=true',
+            any,
+            any,
             timeoutMs: TIMEOUT))
         .thenAnswer((_) async {
       return http.Response(fakeResponse, 200);

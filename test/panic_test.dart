@@ -44,7 +44,7 @@ void main() {
     FlagshipConfig config = ConfigBuilder().withTimeout(TIMEOUT).build();
 
     Flagship.sharedInstance().onUpdateState(Status.NOT_INITIALIZED);
-    await Flagship.start("bkk9glocmjcg0vtmdlrr", "apiKey", config: config);
+    Flagship.start("bkk9glocmjcg0vtmdlrr", "apiKey", config: config);
 
     var v1 = Flagship.newVisitor("panicUser").build();
     v1.config.decisionManager = fakePanicApi;
