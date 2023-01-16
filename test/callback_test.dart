@@ -31,12 +31,7 @@ void main() {
 
   Map<String, dynamic> presetContext =
       FlagshipContextManager.getPresetContextForApp();
-  Map<String, dynamic> jsonData = {
-    "visitorId": "visitorId",
-    "context": presetContext,
-    "trigger_hit": false
-  };
-  Object data = json.encode(jsonData);
+
   // Object data = json.encode({"visitorId": "visitorId", "context": {}, "trigger_hit": false});
 
   MockService fakePanicService = MockService();
