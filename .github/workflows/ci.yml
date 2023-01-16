@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ macos-latest]
         flutter: [stable]
     steps:
       - uses: actions/checkout@v2
@@ -20,7 +20,6 @@ jobs:
           channel: ${{ matrix.flutter }}
       - run: dart --version
       - run: flutter --version
-      - run: flutter upgrade
       - run: flutter pub get
       - run: flutter test --coverage
       - name: Upload coverage to codecov
